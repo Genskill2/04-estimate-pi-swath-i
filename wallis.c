@@ -4,7 +4,6 @@
 #include <math.h>
 
 float wallis_pi(int);
-
 int main(void) 
 {
   float pi;
