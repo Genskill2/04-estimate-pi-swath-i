@@ -3,18 +3,20 @@
 #include <stdio.h>
 #include <math.h>
 
-float wallis_pi(int n) 
+float wallis_pi(int);
+
+int main(void) 
 {
-float ans=1.0;
-for(int i=1;i<=n;i++) 
-{float nr= 4*i*i;
-
-ans= ans*(nr/(nr-1));
-
-} 
-
-return ans*2; 
-}
+  float pi;
+  for (int i=0; i<5; i++) {
+    pi = wallis_pi(i);
+    if (!(fabs(pi - M_PI) > 0.15)) {
+      
+      
+      printf("Estimate with just %d iterations is %f which is too accurate.\n", i, pi);
+      abort();
+    }
+  }
 
   for (int i=500; i<3000; i++) {
     pi = wallis_pi(i);
@@ -24,11 +26,14 @@ return ans*2;
     }
   }
 }
-
 float wallis_pi(int n) 
+
 {
+
 float ans=1.0;
+
 for(int i=1;i<=n;i++) 
+
 {float nr= 4*i*i;
 
 ans= ans*(nr/(nr-1));
@@ -36,4 +41,5 @@ ans= ans*(nr/(nr-1));
 } 
 
 return ans*2; 
+
 }
